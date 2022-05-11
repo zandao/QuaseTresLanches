@@ -1,5 +1,8 @@
 package academy.learnprogramming;
 
+import academy.learnprogramming.menu.Menu;
+import academy.learnprogramming.menu.Item;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -12,9 +15,18 @@ public class Main{
     private static ListaDeClientes clientes = new ListaDeClientes(listaDeClientesMain);
 
     public static void main(String[] args) {
+        Menu menuInicial = new Menu("QUASE TRES LANCHES");
+        menuInicial.adicionarItem("NOVO_PEDIDO", "Realizar novo pedido");
+        menuInicial.adicionarItem("CLIENTES", "Gerenciar clientes");
+        menuInicial.imprimir();
+        Item item = menuInicial.lerOpcao();
+        if (item != null) {
+            System.out.println("Item selecionado: " + item.getNome());
+        } else {
+            System.out.println("Selecionado finalizar");
+        }
 
         menuInicial();
-
 
     }
 
